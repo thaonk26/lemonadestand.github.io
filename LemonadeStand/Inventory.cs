@@ -8,15 +8,21 @@ namespace LemonadeStand
 {
     class Inventory
     {
-        public double lemon;
-        public double ice;
-        public double cups;
+        public int lemon;
+        public int ice;
+        public int cups;
+        public int sugar;
+        public int pitcher;
         public Inventory()
         {
         }
         public void CurrentInventory()
         {
-            Console.WriteLine("You currently have:\n {0} lemons\n {1} Ice\n {2} cups", lemon, ice, cups);
+            Console.WriteLine("You currently have:\n {0} lemons\n {1} Ice\n {2} cups\n {3} sugar", lemon, ice, cups, sugar);
+        }
+        public void SetLemonade()
+        {
+
         }
        
     }

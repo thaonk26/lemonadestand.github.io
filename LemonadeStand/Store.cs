@@ -11,62 +11,88 @@ namespace LemonadeStand
         public int lemon;
         public int ice;
         public int cups;
-        public int lemonade;
+        public double lemonadePrice;
         public int sugar;
         public Store()
         {
 
         }
-        public void BuyIngredients()
-        {
-
-            Console.WriteLine("Welcome to the store, what would you like to buy?\n lemons, cups, sugar or ice?");
-            string buyingIngredients = Console.ReadLine();
-
-            {
-                switch (buyingIngredients)
-                {
-                    case "lemons":
-                        Console.WriteLine("How many would you like?");
-                        BuyLemons();
-                        Console.WriteLine("You have bought {0} Lemons", lemon);
-                        break;
-                    case "cups":
-                        Console.WriteLine("How many would you like?");
-                        BuyCups();
-                        Console.WriteLine("You have bought {0} Cups", cups);
-                        break;
-                    case "ice":
-                        Console.WriteLine("How many would you like?");
-                        BuyIce();
-                        break;
-                    case "sugar":
-                        Console.WriteLine("How many would you like?");
-                        BuySugar();
-                        break;
-                    default:
-                        break;
-                }             
-            }
-        }
-        public int BuyLemons()
+        //public void BuyIngredients(Inventory inventory)
+        //{
+        //    bool buyIngredients = true;
+        //    while (buyIngredients)
+        //    {
+        //        Console.Clear();
+        //        Console.WriteLine("Welcome to the store, what would you like to buy?\n lemons, cups, sugar or ice? Enter '0' to exit.");
+        //    string buyingIngredients = Console.ReadLine();
+        //        {
+        //            switch (buyingIngredients)
+        //            {
+        //                case "lemons":
+        //                    Console.WriteLine("How many would you like?");
+        //                    BuyLemons();
+        //                    Console.WriteLine("You have bought {0} Lemons", lemon);
+        //                    break;
+        //                case "cups":
+        //                    Console.WriteLine("How many would you like?");
+        //                    BuyCups();
+        //                    Console.WriteLine("You have bought {0} Cups", cups);
+        //                    break;
+        //                case "ice":
+        //                    Console.WriteLine("How many would you like?");
+        //                    BuyIce();
+        //                    break;
+        //                case "sugar":
+        //                    Console.WriteLine("How many would you like?");
+        //                    BuySugar();
+        //                    break;
+        //                default:
+        //                    buyIngredients = false;
+        //                    break;
+        //            }
+        //        }    
+        //    }
+        //}
+        public int BuyLemons(double totalMoney)
         {
             bool buyingLemons = true;
-            int lemon = 0;
+            lemon = 0;
             while (buyingLemons)
             {
-                Console.WriteLine("Would you like to buy 10, 20 or 40 Lemons?");
+                Console.Clear();
+                Console.WriteLine("Would you like to buy 10($1.50), 20($3) or 40($6) Lemons? Enter '0' to exit.");
                 int amountOfLemons = Convert.ToInt32(Console.ReadLine());
                 switch (amountOfLemons)
                 {
                     case 10:
-                        lemon = lemon + 10;
+
+                        if (totalMoney > 0)
+                        {
+                            lemon = lemon + 10;
+                        }else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
                     case 20:
-                        lemon = lemon + 20;
+                        if (totalMoney > 0)
+                        {
+                            lemon = lemon + 20;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
                     case 40:
-                        lemon = lemon + 40;
+                        if (totalMoney > 0)
+                        {
+                            lemon = lemon + 40;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
                     default:
                         buyingLemons = false;
@@ -75,24 +101,46 @@ namespace LemonadeStand
             }
             return lemon;
         }
-        public double BuyCups()
+        public int BuyCups(double totalMoney)
         {
             bool buyingCups = true;
             int cups = 0;
             while (buyingCups)
             {
-                Console.WriteLine("Would you like to buy 20, 40 or 100 Cups?");
+                Console.Clear();
+                Console.WriteLine("Would you like to buy 20($0.75), 40($1.50) or 100($3.75) Cups? Enter '0' to exit.");
                 int amountOfCups = Convert.ToInt32(Console.ReadLine());
                 switch (amountOfCups)
                 {
                     case 20:
-                        cups = cups + 20;
+                        if (totalMoney > 0)
+                        {
+                            cups = cups + 20;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
                     case 40:
-                        cups = cups + 40;
+                        if (totalMoney > 0)
+                        {
+                            cups = cups + 40;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
                     case 100:
-                        cups = cups + 100;
+                        if (totalMoney > 0)
+                        {
+                            cups = cups + 100;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
                     default:
                         buyingCups = false;
@@ -101,25 +149,47 @@ namespace LemonadeStand
             }
             return cups;
         }
-        public double BuyIce()
+        public int BuyIce(double totalMoney)
         {
             bool buyingIce = true;
             int ice = 0;
             while (buyingIce)
             {
-                Console.WriteLine("Would you like to buy 100, 200 or 500 Ice?");
+                Console.Clear();
+                Console.WriteLine("Would you like to buy 100($0.80), 200($1.60) or 500($4) Ice? Enter '0' to exit.");
                 int amountOfIce = Convert.ToInt32(Console.ReadLine());
                 switch (amountOfIce)
                 {
                     case 100:
-                        ice = ice + 100;
+                        if (totalMoney > 0)
+                        {
+                            ice = ice + 100;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
 
                     case 200:
-                        ice = ice + 200;
+                        if (totalMoney > 0)
+                        {
+                            ice = ice + 200;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
                     case 500:
-                        ice = ice + 500;
+                        if (totalMoney > 0)
+                        {
+                            ice = ice + 500;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
                     default:
                         buyingIce = false;
@@ -128,24 +198,46 @@ namespace LemonadeStand
             }
             return ice;
         }
-        public double BuySugar()
+        public int BuySugar(double totalMoney)
         {
             bool buyingSugar = true;
             int sugar = 0;
             while (buyingSugar)
             {
-                Console.WriteLine("Would you like to buy 10, 20 or 40 Sugars?");
+                Console.Clear();
+                Console.WriteLine("Would you like to buy 10($1.50), 20($3) or 40($6) Sugars? Enter '0' to exit.");
                 int amountOfSugar = Convert.ToInt32(Console.ReadLine());
                 switch (amountOfSugar)
                 {
                     case 10:
-                        sugar = sugar + 10;
+                        if (totalMoney > 0)
+                        {
+                            sugar = sugar + 10;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
                     case 20:
-                        sugar = sugar + 20;
+                        if (totalMoney > 0)
+                        {
+                            sugar = sugar + 20;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
                     case 40:
-                        sugar = sugar + 40;
+                        if (totalMoney > 0)
+                        {
+                            sugar = sugar + 40;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money");
+                        }
                         break;
                     default:
                         buyingSugar = false;
