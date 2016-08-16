@@ -15,6 +15,7 @@ namespace LemonadeStand
         public int sugar;
         public Store()
         {
+            
 
         }
         //public void BuyIngredients(Inventory inventory)

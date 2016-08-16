@@ -9,8 +9,8 @@ namespace LemonadeStand
     class Weather
     {
         Random random = new Random();
-        string currentWeather;
-        int currentTemperature;
+        public string currentWeather;
+        public int currentTemperature;
         public Weather()
         {
         }

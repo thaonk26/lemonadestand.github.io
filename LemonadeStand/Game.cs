@@ -12,6 +12,7 @@ namespace LemonadeStand
         Store store = new Store();
         Inventory inventory = new Inventory();
         Customer[] customer = new Customer[100];
+        Weather weather = new Weather();
         public Game()
         {
             Console.WriteLine("What is your name?");
@@ -24,12 +25,12 @@ namespace LemonadeStand
             for (int i = 0; i < days; i++)
             {
                 Console.WriteLine("Day {1} of {0}", days, i + 1);
+                SpawnCustomer();
                 SetWeather();
                 PrepLemonade();
                 SetRecipe();
                 SetPitcher();
                 RunDay();
-                SpawnCustomer();
             }
         }
         public void PrepLemonade()
@@ -65,8 +66,7 @@ namespace LemonadeStand
         }
         public void SetWeather()
         {
-            Weather weather = new Weather();
-            Console.WriteLine("Weather is set to {0} at {1} degrees", weather.SetWeather(), weather.SetTemperature());
+            Console.WriteLine("Weather is set to {0} at {1} degrees", weather.currentWeather, weather.currentTemperature);
         }
         
         public void SpawnCustomer()
@@ -93,6 +93,7 @@ namespace LemonadeStand
             } else
             {
                 inventory.pitcher = 0;
+                Console.WriteLine("SOLD OUT");
             }
 
         }
@@ -103,25 +104,30 @@ namespace LemonadeStand
             {
                 for (int i = 0; i < customer.Length; i++)
                 {
-                    customer[i].SpawnCustomer();
+                    customer[i].CustomerBuyChance(inventory, weather, player1);
                     if (inventory.pitcher > 0)
                     {
                         inventory.pitcher--;
                         inventory.ice = inventory.ice - player1.iceRecipe;
                         player1.money = player1.money + player1.lemonadePrice;
+                        Console.WriteLine("Customer {0} bought a cup!", i + 1);
                     }
                     else
                     {
+                        
                         if ((inventory.lemon - player1.lemonRecipe > 0) && (inventory.sugar - player1.sugarRecipe > 0) && (inventory.cups - 12) > 0)
                         {
                             SetPitcher();
                         }
-                        else { customersBuy = false; }
+                        else
+                        {
+                            Console.WriteLine("Customer {0} passed by", i + 1);
+                            customersBuy = false;
+                        }
                     }
                     i++;
                 }
             }
-
         }
     }
 }
