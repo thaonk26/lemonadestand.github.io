@@ -25,11 +25,11 @@ namespace LemonadeStand
         public void SetRecipe()
         {
             Console.WriteLine("How much lemons would you like to use per pitcher?");
-            lemonRecipe = Convert.ToInt32(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out lemonRecipe);
             Console.WriteLine("How much sugar would you like to use per pitcher?");
-            sugarRecipe = Convert.ToInt32(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out sugarRecipe);
             Console.WriteLine("How much ice would you like to use per cup?");
-            iceRecipe = Convert.ToInt32(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out iceRecipe);
         }
 
     }

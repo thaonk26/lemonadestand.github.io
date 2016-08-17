@@ -23,7 +23,7 @@ namespace LemonadeStand
         public void RunGame()
         {
             Console.WriteLine("How many days would you like to work at\n the Lemonade stand for? (minimum 7 days)");
-            days = Convert.ToInt32(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out days);
             for (int i = 0; i < days; i++)
             {
                 Console.Clear();
@@ -41,6 +41,7 @@ namespace LemonadeStand
         {
             Store store = new Store();
             inventory.CurrentInventory();
+            Math.Round(player1.money, 2);
             Console.WriteLine("You currently have ${0} in your wallet.", player1.money);
             Console.ReadLine();
             int lemon = store.BuyLemons(player1.money);
@@ -70,13 +71,12 @@ namespace LemonadeStand
             weather.ChangeWeather();
             player1.totalSpent = player1.totalSpent + (store.lemon * store.pricePerLemon) + (store.sugar * store.pricePerSugar) + (store.ice * store.pricePerIce) + (store.cups * store.pricePerCup);
             Console.WriteLine("At what would you like to sell your Lemonade at?");
-            player1.lemonadePrice = (Convert.ToDouble(Console.ReadLine()));
+            double.TryParse(Console.ReadLine(), out player1.lemonadePrice);
         }
         public void SetWeather()
         {
             Console.WriteLine("Predicted Weather for tomorrow is {0} at {1} degrees", weather.SetWeather(), weather.SetTemperature());
-        }
-        
+        }        
         public void SpawnCustomer()
         {
             for (int i = 0; i < customer.Length; i++)
@@ -100,7 +100,6 @@ namespace LemonadeStand
             {
                 inventory.pitcher = 0;
             }
-
         }
         public void RunDay()
         {
@@ -127,7 +126,6 @@ namespace LemonadeStand
                                 }
                                 else
                                 {
-
                                     if ((inventory.lemon - player1.lemonRecipe > 0) && (inventory.sugar - player1.sugarRecipe > 0) && (inventory.cups - 12) > 0)
                                     {
                                         SetPitcher();
@@ -162,11 +160,13 @@ namespace LemonadeStand
         {
             Store store = new Store();
             Console.Clear();
-            Console.WriteLine("Your total sales for {1} Days are ${0}", player1.totalSales, days);
-            Console.WriteLine("Your total money spent during the {0} Days are ${1}", days, player1.totalSpent);
-            inventory.liquidatedInventory = (inventory.ice * store.pricePerIce) + (inventory.lemon * store.pricePerLemon) + (inventory.sugar * store.pricePerSugar) + (inventory.cups * store.pricePerCup);
+            Console.WriteLine("Congrats {0}!!! You finished your {1} Days of Lemonade Stand!", player1.name, days);
+            Console.WriteLine("Your total sales for {1} Days are ${0}", Math.Round(player1.totalSales, 2), days);
+            Console.WriteLine("Your total money spent during the {0} Days are ${1}", days, Math.Round(player1.totalSpent, 2));
+            Math.Round(inventory.liquidatedInventory = ((inventory.ice * store.pricePerIce) + (inventory.lemon * store.pricePerLemon) + (inventory.sugar * store.pricePerSugar) + (inventory.cups * store.pricePerCup)), 2);
             Console.WriteLine("Your liquidated inventory value is ${0}", inventory.liquidatedInventory);
             double profits = player1.totalSales - player1.totalSpent - inventory.liquidatedInventory;
+            Math.Round(profits, 2);
             if(profits > 0)
             {
                 Console.WriteLine("You have made a profit of ${0}", profits);

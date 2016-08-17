@@ -47,7 +47,11 @@ namespace LemonadeStand
             {
                 currentTemperature = currentTemperature - 5;
                 return currentTemperature;
-            }else { return currentTemperature; }
+            }else
+            {
+                currentTemperature = currentTemperature + 5;
+                return currentTemperature;
+            }
         }
     }
 }

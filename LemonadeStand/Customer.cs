@@ -11,7 +11,6 @@ namespace LemonadeStand
     {
         public Customer()
         {
-
         }
         public bool CustomerBuyChance(Inventory inventory, Weather weather, Player player)
         {

@@ -17,55 +17,17 @@ namespace LemonadeStand
         public double pricePerCup = 0.0375;
         public double pricePerSugar = .10;
         public Store()
-        {
-            
-
+        {            
         }
-        //public void BuyIngredients(Inventory inventory)
-        //{
-        //    bool buyIngredients = true;
-        //    while (buyIngredients)
-        //    {
-        //        Console.Clear();
-        //        Console.WriteLine("Welcome to the store, what would you like to buy?\n lemons, cups, sugar or ice? Enter '0' to exit.");
-        //    string buyingIngredients = Console.ReadLine();
-        //        {
-        //            switch (buyingIngredients)
-        //            {
-        //                case "lemons":
-        //                    Console.WriteLine("How many would you like?");
-        //                    BuyLemons();
-        //                    Console.WriteLine("You have bought {0} Lemons", lemon);
-        //                    break;
-        //                case "cups":
-        //                    Console.WriteLine("How many would you like?");
-        //                    BuyCups();
-        //                    Console.WriteLine("You have bought {0} Cups", cups);
-        //                    break;
-        //                case "ice":
-        //                    Console.WriteLine("How many would you like?");
-        //                    BuyIce();
-        //                    break;
-        //                case "sugar":
-        //                    Console.WriteLine("How many would you like?");
-        //                    BuySugar();
-        //                    break;
-        //                default:
-        //                    buyIngredients = false;
-        //                    break;
-        //            }
-        //        }    
-        //    }
-        //}
         public int BuyLemons(double totalMoney)
-        {
-            
+        {            
             bool buyingLemons = true;
+            int amountOfLemons;
                 while (buyingLemons)
                 {
                     Console.Clear();
                     Console.WriteLine("Would you like to buy 10($1), 20($2) or 40($4) Lemons? Enter '0' to exit.");
-                    int amountOfLemons = Convert.ToInt32(Console.ReadLine());
+                    int.TryParse(Console.ReadLine(), out amountOfLemons);
                     switch (amountOfLemons)
                     {
                         case 10:
@@ -114,11 +76,12 @@ namespace LemonadeStand
         public int BuyCups(double totalMoney)
         {
             bool buyingCups = true;
+            int amountOfCups;
             while (buyingCups)
             {
                 Console.Clear();
                 Console.WriteLine("Would you like to buy 20($0.75), 40($1.50) or 100($3.75) Cups? Enter '0' to exit.");
-                int amountOfCups = Convert.ToInt32(Console.ReadLine());
+                int.TryParse(Console.ReadLine(), out amountOfCups);
                 switch (amountOfCups)
                 {
                     case 20:
@@ -167,11 +130,12 @@ namespace LemonadeStand
         public int BuyIce(double totalMoney)
         {
             bool buyingIce = true;
+            int amountOfIce;
             while (buyingIce)
             {
                 Console.Clear();
                 Console.WriteLine("Would you like to buy 100($0.80), 200($1.60) or 500($4) Ice? Enter '0' to exit.");
-                int amountOfIce = Convert.ToInt32(Console.ReadLine());
+                int.TryParse(Console.ReadLine(), out amountOfIce);
                 switch (amountOfIce)
                 {
                     case 100:
@@ -221,11 +185,12 @@ namespace LemonadeStand
         public int BuySugar(double totalMoney)
         {
             bool buyingSugar = true;
+            int amountOfSugar;
             while (buyingSugar)
             {
                 Console.Clear();
                 Console.WriteLine("Would you like to buy 10($1), 20($2) or 40($4) Sugar? Enter '0' to exit.");
-                int amountOfSugar = Convert.ToInt32(Console.ReadLine());
+                int.TryParse(Console.ReadLine(), out amountOfSugar);
                 switch (amountOfSugar)
                 {
                     case 10:

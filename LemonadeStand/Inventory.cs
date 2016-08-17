@@ -20,11 +20,6 @@ namespace LemonadeStand
         public void CurrentInventory()
         {
             Console.WriteLine("You currently have:\n {0} lemons\n {1} Ice\n {2} cups\n {3} sugar", lemon, ice, cups, sugar);
-        }
-        public void SetLemonade()
-        {
-
-        }
-       
+        }  
     }
 }
