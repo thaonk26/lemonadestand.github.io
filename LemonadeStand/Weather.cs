@@ -33,7 +33,8 @@ namespace LemonadeStand
         }
         public int SetTemperature()
         {
-            int temperature = random.Next(50, 101);
+            currentTemperature = random.Next(50, 101);
+
             return currentTemperature;
         }
         public int ChangeWeather()

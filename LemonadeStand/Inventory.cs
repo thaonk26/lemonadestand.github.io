@@ -13,6 +13,7 @@ namespace LemonadeStand
         public int cups;
         public int sugar;
         public int pitcher;
+        public double liquidatedInventory;
         public Inventory()
         {
         }

@@ -14,6 +14,9 @@ namespace LemonadeStand
         public int sugarRecipe;
         public int lemonRecipe;
         public double lemonadePrice;
+        public double totalSales;
+        public double totalSpent;
+        public double dailySales;
         public Player(string Name)
         {
             name = Name;

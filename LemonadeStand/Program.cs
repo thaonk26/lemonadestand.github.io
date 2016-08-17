@@ -12,7 +12,7 @@ namespace LemonadeStand
         {
             Game game = new Game();
             game.RunGame();
-
+            game.TotalSalesResults();
         }
     }
 }
