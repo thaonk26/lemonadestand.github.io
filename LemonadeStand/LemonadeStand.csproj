@@ -44,14 +44,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="Day.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadFile.cs" />
     <Compile Include="Store.cs" />
-    <Compile Include="UserInterface.cs" />
     <Compile Include="Weather.cs" />
+    <Compile Include="WriteFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

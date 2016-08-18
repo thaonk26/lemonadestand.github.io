@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Program
+    class Day
     {
-        static void Main(string[] args)
+        public int numberOfDays;
+        public int currentDay;
+        public Day()
         {
-            Game game = new Game();
-            game.RunGame();
-            game.TotalSalesResults();
+
         }
     }
-} 
+}

@@ -16,7 +16,6 @@ namespace LemonadeStand
         public double lemonadePrice;
         public double totalSales;
         public double totalSpent;
-        public double dailySales;
         public Player(string Name)
         {
             name = Name;
